@@ -4,7 +4,7 @@ const app = express();
 const router = Router();
 
 app.use((req, res, next) => {
-    res.setHeader("Ka was das ist digga");
+    res.setHeader("Kawasdasistdigga");
     next();
 });  
 
