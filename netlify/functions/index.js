@@ -1,6 +1,6 @@
 import serverless from "serverless-http";
 
-import { app, router } from "../../src/app";
+import { app, router } from "../../src/skrem-app";
 
 app.use("/", router);
 
