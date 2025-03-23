@@ -1,10 +1,10 @@
 import express, { Router } from "express";
+import bodyParser from "body-parser";
+import { database } from "../src/db/skrem";
 
 const app = express();
 const router = Router();
 
-let database = require("./src/db/skrem.js");
-import bodyParser from "body-parser";
 
 app.use((request, response, next) => {
     response.setHeader("Kawasdasistdigga", "testdigga");
