@@ -92,18 +92,22 @@ router.get("/memeliothek/randompics", (request, response, next) => {
 //-------------------------------------------------------------------------------------
 
 router.get("/skrem", (request, response, next) => {
-    let sql = "select * from skrem";
-    let params = [];
-    database.all(sql, params, (error, rows) => {
-        if (error) {
-            response.status(400).json({"error": error.message});
-            return;
-        };
-        response.json({
-            "message": "success",
-            "data": rows
-        });
-    });
+    // let sql = "select * from skrem";
+    // let params = [];
+    // database.all(sql, params, (error, rows) => {
+    //     if (error) {
+    //         response.status(400).json({"error": error.message});
+    //         return;
+    //     };
+    //     response.json({
+    //         "message": "success",
+    //         "data": rows
+    //     });
+    // });
+    response.json({
+        "message": "Skrem", 
+        "data": "lmao"
+    })
 });
 
 router.get("/skrem/:id", (request, response, next) => {
