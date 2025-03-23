@@ -7,4 +7,4 @@ database.run(`CREATE TABLE IF NOT EXISTS skrem (
     fname TEXT)`
 );
 
-module.exports = database;
+export { database };
