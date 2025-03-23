@@ -1,6 +1,6 @@
 import serverless from "serverless-http";
 
-import { app, router } from "../../src/home-app";
+import { app, router } from "../../src/app";
 
 app.use("/", router);
 
