@@ -3,7 +3,7 @@ import express, { Router } from "express";
 const app = express();
 const router = Router();
 
-import database from "./src/db/skrem.js";
+let database = importScripts("./src/db/skrem.js");
 import bodyParser from "body-parser";
 
 app.use((request, response, next) => {
