@@ -8,5 +8,6 @@
   }, 
   "scripts": {
     "startDB": "node ./src/db/skrem"
-  }
+  }, 
+  "type": "module"
 }
