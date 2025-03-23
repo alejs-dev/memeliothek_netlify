@@ -1,6 +1,7 @@
 import express, { Router } from "express";
 import bodyParser from "body-parser";
 import { database } from "../src/db/skrem";
+import cors from "cors";
 
 const app = express();
 const router = Router();
@@ -9,7 +10,8 @@ const router = Router();
 app.use((request, response, next) => {
     response.setHeader("Kawasdasistdigga", "testdigga");
     next();
-});  
+});
+
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(cors());
