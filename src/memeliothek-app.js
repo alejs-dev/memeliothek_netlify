@@ -11,7 +11,7 @@ app.use((req, res, next) => {
 router.get("/", (req, res, next) => {
     return res.json({
         "message": "Home", 
-        "data": "This is the Homepage of the Skrem App"
+        "data": "This is the Homepage of the Memeliothek App"
     })
 });
 
