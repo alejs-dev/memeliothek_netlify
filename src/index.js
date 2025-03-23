@@ -1,4 +1,4 @@
-import { app, router } from "./app";
+import { app, router } from "./skrem-app";
 
 app.use("/", router);
 
