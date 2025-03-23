@@ -8,6 +8,13 @@ app.use((req, res, next) => {
     next();
 });  
 
+router.get("/", (req, res, next) => {
+    return res.json({
+        "message": "Home", 
+        "data": "This is the Homepage of Skrem App"
+    })
+});
+
 router.get("/test", (req, res, next) => {
     return res.json({
         "message": "test", 
