@@ -7,6 +7,6 @@
     "sqlite3": "5.1.7"
   },
   "scripts": {
-    "startDB": "node ./src/db/skrem"
+    "startDB": "node ./netlify/functions/db/index"
   }
 }
