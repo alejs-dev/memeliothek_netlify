@@ -1,6 +1,6 @@
 import express, { Router } from "express";
 import bodyParser from "body-parser";
-import { database } from "../src/db/skrem";
+import { database } from "../netlify/functions/db/index";
 import cors from "cors";
 
 const app = express();
