@@ -1,11 +1,10 @@
 import express, { Router } from "express";
 import bodyParser from "body-parser";
-import { database } from "./src/db/index";
+import { database } from "../src/db/index";
 import cors from "cors";
 
 const app = express();
 const router = Router();
-
 
 app.use((request, response, next) => {
     response.setHeader("Kawasdasistdigga", "testdigga");
@@ -94,18 +93,17 @@ router.get("/memeliothek/randompics", (request, response, next) => {
 router.get("/skrem", (request, response, next) => {
     let sql = "select * from skrem";
     let params = [];
-    () => {
-        database.all(sql, params, (error, rows) => {
-            if (error) {
-                response.status(400).json({"error": error.message});
-                return;
-            };
-            response.json({
-                "message": "success",
-                "data": rows
-            });
+    database.all(sql, params, (error, rows) => {
+        if (error) {
+            response.status(400).json({"error": error.message});
+            return;
+        };
+        response.json({
+            "message": "success",
+            "data": rows
         });
-    }
+    });
+
     // response.json({
     //     "message": "Skrem", 
     //     "data": "lmao"

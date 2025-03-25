@@ -7,4 +7,4 @@ database.run(`CREATE TABLE IF NOT EXISTS skrem (
     name TEXT)`
 );
 
-export default database;
+export { database };
