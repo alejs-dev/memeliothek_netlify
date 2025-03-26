@@ -4,7 +4,7 @@ import { app, router } from "../../src/app";
 
 app.use("/", router);
 
-router.get("/skrem/:id", (request, response, next) => {
+app.get("/skrem/:id", (request, response, next) => {
     let sql = "select * from skrem where id = ?";
     let params = [request.params.id];
     database.get(sql, params, (error, row) => {
