@@ -1,5 +1,5 @@
 import sql from "sqlite3";
-const database = new sql.Database("skrem.sqlite3");
+const database = new sql.Database("../../../skrem.sqlite3");
 
 database.run(`CREATE TABLE IF NOT EXISTS skrem (
     id INTEGER PRIMARY KEY,
@@ -7,4 +7,4 @@ database.run(`CREATE TABLE IF NOT EXISTS skrem (
     name TEXT)`
 );
 
-export { database };
+export default database;
