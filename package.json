@@ -8,5 +8,6 @@
   },
   "scripts": {
     "startDB": "echo 'starting server'"
-  }
+  }, 
+  "type": "module"
 }
