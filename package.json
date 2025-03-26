@@ -7,6 +7,6 @@
     "sqlite3": "5.1.7"
   },
   "scripts": {
-    "startDB": "node ./src/db/index"
+    "startDB": "echo 'starting server'"
   }
 }
