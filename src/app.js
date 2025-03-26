@@ -1,6 +1,5 @@
 import express, { Router } from "express";
 import bodyParser from "body-parser";
-import { database } from "../src/db/index";
 import cors from "cors";
 
 const app = express();
@@ -108,21 +107,6 @@ router.get("/skrem", (request, response, next) => {
     //     "message": "Skrem", 
     //     "data": "lmao"
     // })
-});
-
-router.get("/skrem/:id", (request, response, next) => {
-    let sql = "select * from skrem where id = ?";
-    let params = [request.params.id];
-    database.get(sql, params, (error, row) => {
-        if (error) {
-            response.status(400).json({"error": error.message});
-            return;
-        };
-        response.json({
-            "message": "success",
-            "data": row
-        });
-    });
 });
 
 router.post("/skrem", (request, response, next) => {
