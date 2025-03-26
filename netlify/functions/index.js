@@ -1,5 +1,5 @@
 import serverless from "serverless-http";
-import { database } from "../../src/db/index";
+import { database } from "../db/index";
 import { app, router } from "../../src/app";
 
 app.use("/", router);
