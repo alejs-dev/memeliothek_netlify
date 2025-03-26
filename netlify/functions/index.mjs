@@ -1,5 +1,5 @@
 import serverless from "serverless-http";
-import { database } from "../functions/db/index.mjs";
+const database = import("../functions/db/index.mjs");
 import { app, router } from "../../src/app";
 
 app.use("/", router);
