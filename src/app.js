@@ -1,19 +1,36 @@
+// Import the Libraries and other required modules
 import express, { Router } from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
+import { notFound } from "./middleware/not-found";
+import { error } from "./middleware/error";
+import { tursoClient } from "./util/turso";
+import middlewareFuntions from "./middleware/middleware";
 
+// Create the App and Router
 const app = express();
 const router = Router();
 
+// Set Cors and BodyParser Configurations
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+app.use(cors());
+
+// Set Middleware Functions
+app.use(middlewareFuntions.logRequestMethod)
+app.use(middlewareFuntions.logHostName);
+
+// Set Default Error and Not Found Middleware
+app.use(notFound); 
+app.use(error);
+
+// Set App Header
 app.use((request, response, next) => {
     response.setHeader("Kawasdasistdigga", "testdigga");
     next();
 });
 
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
-app.use(cors());
-
+// Router get Homepage
 router.get("/", (request, response, next) => {
     return response.json({
         "message": "Home", 
@@ -89,24 +106,18 @@ router.get("/memeliothek/randompics", (request, response, next) => {
 //------------------------- Routes for Skrem ------------------------------------------
 //-------------------------------------------------------------------------------------
 
-router.get("/skrem", (request, response, next) => {
-    let sql = "select * from skrem";
-    let params = [];
-    database.all(sql, params, (error, rows) => {
-        if (error) {
-            response.status(400).json({"error": error.message});
-            return;
-        };
-        response.json({
-            "message": "success",
-            "data": rows
-        });
+router.get("/skrem", async (request, response, next) => {
+    const db = tursoClient(request);
+    const sql = "select * from skrem";
+    const transaction = await db.transaction();
+    const resSel = await transaction.execute({
+        sql: sql,
     });
 
-    // response.json({
-    //     "message": "Skrem", 
-    //     "data": "lmao"
-    // })
+    response.json({
+        "message": "Skrem", 
+        "data": resSel
+    });
 });
 
 router.post("/skrem", (request, response, next) => {
