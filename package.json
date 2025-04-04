@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@libsql/client": "0.4.0-pre.5",
+    "@libsql/client": "0.15.2",
     "body-parser": "^1.20.3",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
